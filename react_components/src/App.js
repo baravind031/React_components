@@ -67,9 +67,13 @@ import "./index.css";
 export default function App() {
   const [tasks, setTasks] = useState([]);
 
+  // creating intial object with empty values 
+  //  newTask is current value and 
+  // setNewTask is a function to updated  state value
   const [newTask, setNewTask] = useState({
     name: "",
     description: ""
+    // for name  and description properties we can give default values
   });
 
   const handleInputChange = (event) => {
@@ -80,15 +84,19 @@ export default function App() {
     }));
   };
 
+// handleSubmit function is responsible for updating the task state variable with a new task.
   const handleSubmit = (event) => {
     event.preventDefault();
     setTasks((prevTasks) => [...prevTasks, newTask]);
+    
+// we using setNewTask function to clear the input fields
     setNewTask({ name: "", description: "" });
   };
 
   const handleDelete = (index) => {
     setTasks((prevTasks) => prevTasks.filter((_, i) => i !== index));
   };
+
 
   return (
     <div className="App">
@@ -119,20 +127,25 @@ export default function App() {
           <button type="submit">Add Task</button>
         </div>
       </form>
+      <div></div>
       <div className="task-list">
         <h2> List of Name and Description : </h2>
         {tasks.length === 0 ? (
           <p>No Name and Description available, please add list of elements</p>
         ) : (
-          <ul>
+          <ul> 
+            {/* <pre> */}
             {tasks.map((task, index) => (
               <li key={index}>
-                <strong>{task.name}:</strong> {task.description}
+
+                <strong>{task.name}:</strong>     {task.description}
+
                 <div >
                 <button className="delete_btn" onClick={() => handleDelete(index)}>Delete</button>
                 </div>
               </li>
             ))}
+            {/* </pre> */}
           </ul>
         )}
       </div>

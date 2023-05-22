@@ -12,14 +12,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/* .errorMsg {
-  max-width: 350px;
-  color: #f21e08;
-  padding: 2px 0;
-  margin-top: 2px;
-  font-size: 14px;
-  font-weight: 300;
-} */
+ 
 form{
   background-color: rgb(153, 244, 244);
 }
@@ -57,12 +50,7 @@ button {
 @media screen and (max-width: 600px) {
   body {
     width: 90%;
-  }
-
-  /* .errorMsg {
-    max-width: 100%;
-  } */
-  
+  }  
   .form-control {
     flex-direction: column;
   }
@@ -76,5 +64,6 @@ button {
   padding-top: 5px;
   background-color: red;
   font-size: small;
+  margin-top: 10px;
    
 }
