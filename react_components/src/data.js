@@ -1,9 +1,7 @@
 export const students = [{
     id: 0,  
     name: 'Aravind',
-    profession: 'student'
-    
-     
+    profession: 'student'  
   },
    {
     id: 1, 
