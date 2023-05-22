@@ -61,63 +61,6 @@
 
 // ********Build a task tracker application using React ********
 
-// import React, { useState } from "react";
-// import "./index.css";
-
-// export default function App() {
-//   const [state, setState] = useState({
-//     Name: "",
-//     Description: ""
-//   });
-
-//   const handleInputChange = (event) => {
-//     const { name, value } = event.target;
-//     setState((prevProps) => ({
-//       ...prevProps,
-//       [name]: value
-//     }));
-//   };
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     console.log(state);
-//   };
-
-//   return (
-//     <div className="App">
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-control">
-//           <label> Task Name : </label>
-//           <input
-//             type="text"
-//             name="Name"
-//             placeholder="Name"
-//             required
-//             value={state.Name}
-//             onChange={handleInputChange}
-
-//           />
-//         </div>
-//         <div className="form-control">
-//           <label> Task Description :  </label>
-//           <input
-//             type="text"
-//             name="Description"
-//             placeholder="Description"
-//             required
-//             value={state.Description}
-//             onChange={handleInputChange}
-//           />
-//         </div>
-//         <div className="form-control">
-//           <label></label>
-//           <button type="submit">Submit</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
 import React, { useState } from "react";
 import "./index.css";
 
