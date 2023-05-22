@@ -51,7 +51,8 @@ button {
   font-size: larger;
   cursor: pointer;
   border: none;
-  box-shadow: 2px 3px black;   
+  box-shadow: 2px 3px black;
+  padding-top: 10px;   
 }
 @media screen and (max-width: 600px) {
   body {
@@ -65,4 +66,15 @@ button {
   .form-control {
     flex-direction: column;
   }
+}
+.task-list{
+  padding-top: 5px;
+  margin-left:3rem ;
+  
+}
+.delete_btn{
+  padding-top: 5px;
+  background-color: red;
+  font-size: small;
+   
 }

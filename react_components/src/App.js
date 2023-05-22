@@ -61,59 +61,138 @@
 
 // ********Build a task tracker application using React ********
 
+// import React, { useState } from "react";
+// import "./index.css";
+
+// export default function App() {
+//   const [state, setState] = useState({
+//     Name: "",
+//     Description: ""
+//   });
+
+//   const handleInputChange = (event) => {
+//     const { name, value } = event.target;
+//     setState((prevProps) => ({
+//       ...prevProps,
+//       [name]: value
+//     }));
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     console.log(state);
+//   };
+
+//   return (
+//     <div className="App">
+//       <form onSubmit={handleSubmit}>
+//         <div className="form-control">
+//           <label> Task Name : </label>
+//           <input
+//             type="text"
+//             name="Name"
+//             placeholder="Name"
+//             required
+//             value={state.Name}
+//             onChange={handleInputChange}
+
+//           />
+//         </div>
+//         <div className="form-control">
+//           <label> Task Description :  </label>
+//           <input
+//             type="text"
+//             name="Description"
+//             placeholder="Description"
+//             required
+//             value={state.Description}
+//             onChange={handleInputChange}
+//           />
+//         </div>
+//         <div className="form-control">
+//           <label></label>
+//           <button type="submit">Submit</button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// }
+
 import React, { useState } from "react";
 import "./index.css";
 
 export default function App() {
-  const [state, setState] = useState({
-    Name: "",
-    Description: ""
+  const [tasks, setTasks] = useState([]);
+
+  const [newTask, setNewTask] = useState({
+    name: "",
+    description: ""
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setState((prevProps) => ({
-      ...prevProps,
+    setNewTask((prevState) => ({
+      ...prevState,
       [name]: value
     }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(state);
+    setTasks((prevTasks) => [...prevTasks, newTask]);
+    setNewTask({ name: "", description: "" });
+  };
+
+  const handleDelete = (index) => {
+    setTasks((prevTasks) => prevTasks.filter((_, i) => i !== index));
   };
 
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
         <div className="form-control">
-          <label><b> Name : </b></label>
+          <label>Task Name:</label>
           <input
             type="text"
-            name="Name"
+            name="name"
             placeholder="Name"
             required
-            value={state.Name}
+            value={newTask.name}
             onChange={handleInputChange}
-
           />
         </div>
         <div className="form-control">
-          <label><b>Description : </b></label>
+          <label>Task Description:</label>
           <input
             type="text"
-            name="Description"
+            name="description"
             placeholder="Description"
             required
-            value={state.Description}
+            value={newTask.description}
             onChange={handleInputChange}
           />
         </div>
         <div className="form-control">
-          <label></label>
-          <button type="submit">Submit</button>
+          <button type="submit">Add Task</button>
         </div>
       </form>
+      <div className="task-list">
+        <h2> List of Name and Description : </h2>
+        {tasks.length === 0 ? (
+          <p>No Name and Description available, please add list of elements</p>
+        ) : (
+          <ul>
+            {tasks.map((task, index) => (
+              <li key={index}>
+                <strong>{task.name}:</strong> {task.description}
+                <div >
+                <button className="delete_btn" onClick={() => handleDelete(index)}>Delete</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
