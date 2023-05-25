@@ -2,7 +2,7 @@
 simple React component that renders a list of items
 
 # Build a task tracker application using React with the following requirements:
-Create a form with two input fields: "Task Name" and "Task Description".
+Creating a two input fields: "Task Name" and "Task Description".
 Implement form validation to ensure both fields are filled before allowing submission.
 Display a list of tasks with their names and descriptions.
 Allow users to add tasks to the list by submitting the form.
